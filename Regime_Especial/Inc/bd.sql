@@ -18,16 +18,16 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bd`
+-- Banco de dados: `BD`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `registro`
+-- Estrutura da tabela `Registro`
 --
 
-CREATE TABLE `registro` (
+CREATE TABLE `Registro` (
   `ID` int(11) NOT NULL,
   `Nome` varchar(100) NOT NULL,
   `RG` varchar(12) NOT NULL,
@@ -46,7 +46,7 @@ CREATE TABLE `registro` (
 --
 -- Índices para tabela `registro`
 --
-ALTER TABLE `registro`
+ALTER TABLE `Registro`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -56,7 +56,7 @@ ALTER TABLE `registro`
 --
 -- AUTO_INCREMENT de tabela `registro`
 --
-ALTER TABLE `registro`
+ALTER TABLE `Registro`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
