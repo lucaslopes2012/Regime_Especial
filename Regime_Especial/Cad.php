@@ -1,5 +1,6 @@
 <?php
-    require_once "Projeto_Config.php";
+    require_once 'Projeto_Config.php';
+
     include(HEADER_TEMPLATE);
 ?>
     <Form method="post" action="cad_action.php">

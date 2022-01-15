@@ -17,17 +17,16 @@ if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 	
 /** caminho no server para o sistema **/
-//if ( !defined('BASEURL') )
-//	define('BASEURL', '/');
+if ( !defined('BASEURL') )
+	define('BASEURL', '/Regime_Especial/');
 	
 /** caminho do arquivo de banco de dados **/
 if ( !defined('DBAPI') )
-	define('DBAPI', ABSPATH . 'Inc/BD_Config.php');
-
+	define('DBAPI', ABSPATH . 'inc/database.php');
+	
 /** caminhos dos templates de header e footer **/
-define('HEADER_TEMPLATE', ABSPATH . 'inc/Header.php');
-define('FOOTER_TEMPLATE', ABSPATH . 'inc/Footer.php');
-
+define('HEADER_TEMPLATE', ABSPATH . 'inc/header.php');
+define('FOOTER_TEMPLATE', ABSPATH . 'inc/footer.php');
 //echo ABSPATH;
 //echo "<br/>";
 //echo BASEURL;
