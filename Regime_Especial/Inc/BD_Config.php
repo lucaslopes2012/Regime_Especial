@@ -1,25 +1,83 @@
 <?php
+    // abstract class BDConfig{
 
-    $db_name = "BD";
-    $db_host = "localhost:3306";
-    $db_user = "root";
-    $db_password = "";
-
-    abstract class BDConfig{
-
-        protected function OpenBD(){
+    //     protected function OpenBD(){
             
-            try{
+    //         try{
                 
-                $BD = new Pdo("mysql:dbname=".$db_name.";host=".$db_host,$db_user,$db_password);   
-                return $BD;    
+    //             $PDO = new Pdo("mysql:dbname=". DB_NAME .";host=". DB_HOST,DB_USER,DB_PASSWORD);   
+    //             return $PDO;    
         
-            } catch(PDOException $Erro){
+    //         } catch(PDOException $Erro){
                 
-                return $Erro->getMessage();
+    //             return $Erro->getMessage();
         
-            }
-        }
+    //         }
+    //     }
+    // }
+
+/**
+ *  Realiza a Conexão com o Banco de Dados
+ */
+function OpenBD(){
+    
+    try{ 
+        
+        $PDO = new Pdo("mysql:dbname=". DB_NAME .";host=". DB_HOST,DB_USER,DB_PASSWORD);   
+        return $PDO;    
+
+    } catch(PDOException $Erro){
+
+        return $Erro->getMessage();
+
     }
+    
+}
+
+/**
+ *  Pesquisa um Registro pelo ID em uma Tabela
+ */
+function find($Tabela = null, $ID = null ) {
+  
+	$BD = OpenBD();
+	$Registros = null;
+
+	try {
+	  if ($ID) {
+
+        $Sql = $BD->prepare("SELECT * FROM " . $Tabela . " WHERE ID = :ID");
+        $Sql->bindvalue(":ID", $ID);
+        $Sql->execute();
+
+        if($Sql->rowCount() > 0 ){
+            
+            $Registros = $Sql->fetch(PDO::FETCH_ASSOC);
+            
+        }
+
+	  } else {
+	    
+        $Sql = $BD->query("SELECT * FROM " . $Tabela);
+        if ($Sql->rowCount() > 0){
+            $Registros = $Sql->fetchAll(pdo::FETCH_ASSOC);
+        }
+
+	  }
+	} catch (Exception $e) {
+	  $_SESSION['message'] = $e->GetMessage();
+	  $_SESSION['type'] = 'danger';
+  }
+	return $Registros;
+}
+
+/**
+ *  Pesquisa Todos os Registros de uma Tabela
+ */
+function find_all($Tabela ) {
+
+    return find($Tabela);
+
+}
+
 
 ?>

@@ -1,32 +1,21 @@
 <?php
-
 /** O nome do banco de dados*/
-/**define('DB_NAME', 'wda_crud');
-
+define('DB_NAME', 'BDRegime_Especial');
 /**Usuário do banco de dados MySQL */
-/**define('DB_USER', 'root');
-
+define('DB_USER', 'root');
 /** Senha do banco de dados MySQL */
-/**define('DB_PASSWORD', '');
-
+define('DB_PASSWORD', '');
 /** nome do host do MySQL */
-/**define('DB_HOST', 'localhost');
-
+define('DB_HOST', 'localhost:3306');
 /** caminho absoluto para a pasta do sistema **/
 if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
-	
 /** caminho no server para o sistema **/
 if ( !defined('BASEURL') )
-	define('BASEURL', '/Regime_Especial/');
-	
+	define('BASEURL', '/Projetos/Regime_Especial/');
 /** caminho do arquivo de banco de dados **/
 if ( !defined('DBAPI') )
-	define('DBAPI', ABSPATH . 'inc/database.php');
-	
+	define('DBAPI', ABSPATH . 'Inc/BD_Config.php');
 /** caminhos dos templates de header e footer **/
-define('HEADER_TEMPLATE', ABSPATH . 'inc/header.php');
-define('FOOTER_TEMPLATE', ABSPATH . 'inc/footer.php');
-//echo ABSPATH;
-//echo "<br/>";
-//echo BASEURL;
+define('HEADER_TEMPLATE', ABSPATH . 'Inc/Header.php');
+define('FOOTER_TEMPLATE', ABSPATH . 'Inc/Footer.php');

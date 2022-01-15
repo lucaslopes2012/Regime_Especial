@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Jan-2022 às 01:53
+-- Tempo de geração: 15-Jan-2022 às 20:32
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.1
 
@@ -15,11 +15,13 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Banco de dados: `BD`
+-- Banco de dados: `BDRegime_Especial`
 --
+CREATE DATABASE IF NOT EXISTS `BDRegime_Especial` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `BDRegime_Especial`;
 
 -- --------------------------------------------------------
 
@@ -40,11 +42,18 @@ CREATE TABLE `Registro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
+-- Extraindo dados da tabela `Registro`
+--
+
+INSERT INTO `Registro` (`ID`, `Nome`, `RG`, `CPF`, `Data_Nasc`, `Celular`, `Endereco`, `Usuario`, `Senha`) VALUES
+(1, 'Lucas Lopes Marinho', '45.388.310-2', '404.125.388-81', '1997-11-11', '(19) 9 9883-2214', 'Rua Manoel Antônio da Fonseca, Nº 468', 'lucaslopes2012', 'Dukemon@1');
+
+--
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `registro`
+-- Índices para tabela `Registro`
 --
 ALTER TABLE `Registro`
   ADD PRIMARY KEY (`ID`);
@@ -54,12 +63,7 @@ ALTER TABLE `Registro`
 --
 
 --
--- AUTO_INCREMENT de tabela `registro`
+-- AUTO_INCREMENT de tabela `Registro`
 --
 ALTER TABLE `Registro`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;

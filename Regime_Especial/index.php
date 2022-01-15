@@ -47,7 +47,7 @@
             if($sql->rowCount() > 0){
   
               echo "<br/><label>Login efetuado com sucesso!</label>";
-              header("refresh: 5; url=home.php");
+              header("refresh: 5; url=" BASEURL "Pages/home.php");
   
             }else{
   
