@@ -11,7 +11,7 @@
     $Endereco = filter_input(INPUT_POST, 'endereco');
     $Senha = filter_input(INPUT_POST, 'senha');
     $Usuario = filter_input(INPUT_POST, 'usuario');
-
+  
     if ($ID && $Nome && $RG && $CPF && $Data_Nascimento && $Celular && $Endereco && $Senha && $Usuario){
         $sql = $pdo->prepare("UPDATE Registro SET Nome = :Nome, RG = :RG, CPF = :CPF,
         Data_Nasc = :Data_Nascimento, Celular = :Celular, Endereco = :Endereco, Usuario = :Usuario,
@@ -27,13 +27,5 @@
         $sql->bindValue(':Usuario', $Usuario);
         $sql->bindValue(':Senha', $Senha);
         $sql->execute();
-
-        header("location: home.php");
-        exit;
-
-    }else{
-        header("location: index.php");
-        exit;
-    }
 
 ?>

@@ -35,7 +35,7 @@
       <th>CPF</th>
       <th>Data Nasc.</th>
       <th>Celular</th>
-      <th>Endereço</th>
+      <!--<th>Endereço</th>-->
       <th>Usuário</th>
       <th>Ações</th>
     </tr>
@@ -44,18 +44,18 @@
     <?php if ($Registros) : 
       foreach ($Registros as $Registro) : ?>
         <tr>
-          <td><?=$Registro['ID'];?></td>
+          <td align="center"><?=$Registro['ID'];?></td>
           <td><?=$Registro['Nome'];?></td>
           <td><?=$Registro['RG'];?></td>
           <td><?=$Registro['CPF'];?></td>
           <td><?=$Registro['Data_Nasc'];?></td>
           <td><?=$Registro['Celular'];?></td>
-          <td><?=$Registro['Endereco'];?></td>
+          <!--<td><? /* =$Registro['Endereco']; */?></td>-->
           <td><?=$Registro['Usuario'];?></td>
           <td class="actions text-right">
-            <a href="view.php?id=<?php $Registro['ID']; ?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
-            <a href="edit.php?id=<?php $Registro['ID']; ?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
-            <a href="#" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-customer="<?php $Registro['ID']; ?>">
+            <a href="view.php?ID=<?=$Registro['ID'];?>" class="btn btn-sm btn-success"><i class="fa fa-eye"></i> Visualizar</a>
+            <a href="edit.php?ID=<?=$Registro['ID'];?>" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Editar</a>
+            <a href="#<?=$Registro['ID'];?>"class="btn btn-sm btn-danger" data-toggle="modal" data-target="#delete-modal" data-customer="<?php echo $Registro['ID'];?>">
               <i class="fa fa-trash"></i> Excluir
             </a>
           </td>
@@ -69,4 +69,7 @@
   </tbody>
 </table>
 
-<?php include(FOOTER_TEMPLATE); ?>
+<?php
+  include('Modal.php');
+  include(FOOTER_TEMPLATE); 
+?>
